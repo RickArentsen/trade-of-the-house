@@ -1,0 +1,50 @@
+(Current phase)
+- Filtering for unique pdfs and trades
+- Perfecting the trade scraper
+- Setting up the online Heroku scheduledScraper
+- Build the website with the data from the db
+
+The connection between the pipeline and database works
+
+1. Load the website
+2. Enter the name of the politician
+3. Download the pdf with all the trades
+4. Extract all the trades
+
+*^this is all part of the scraping
+
+    Trade info
+    - Name politician
+    - Ticker (Stock)
+    - Date
+    - Buy/Sell
+    - Description
+    - Filing Status
+    - Amount
+
+    *works majority (90%), still needs some refining
+    - Description and filing status, are sensitive to F and D, but this can result in inaccurate values
+    - Action, can be nothing, needs a solution
+    - Amount, '$200?' -> is a bug
+    - Date, can stay null / maybe different format d/m/y || m/d/y ?
+    - Add A new attribute, pdf file name, this way it is easier to manually validate certain trades/attributes
+    - Add the filing ID, it is very useless, but easy to add, looks clean, maybe primary key in db
+
+5. Load the trades into a database
+
+    - Add springboot elements
+    - Connect to supabase
+    - Make the layout for the database and implement it
+    - Testing and using
+
+6. Display the trades on a website
+
+* Schedule the scraper on a daily basis
+
+List of politicians the scraper will track:
+
+["Pelosi", "Greene", "Delaney", "Shreve", "Gottheimer", "Bresnahan", "Jackson", "Hill"]
+
+Things to add:
+
+- A table named "Change log" which keeps tracks when pdfs were added
